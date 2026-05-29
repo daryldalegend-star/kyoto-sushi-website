@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Kyoto Sushi III in Cedar Grove, NJ. Fresh sushi, specialty rolls, sashimi, and hibachi. BYOB. Order online or call (973) 239-8880.">
+<title>Kyoto Sushi III | Cedar Grove, New Jersey</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ======================================================
+   RESET & VARIABLES
+====================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --crimson:    #8B1A1A;
+  --crimson-dk: #6A1010;
+  --black:      #1A0A04;
+  --black-soft: #110600;
+  --cream:      #F8F0E8;
+  --cream-dk:   #EDE0CF;
+  --gold:       #C8902A;
+  --gold-lt:    #D4A84E;
+  --text:       #2A1008;
+  --text-mid:   #5A3A2A;
+  --text-light: #8A6A54;
+  --border:     rgba(139,26,26,0.18);
+  --gold-border:rgba(200,144,42,0.3);
+  --font-display:'Cinzel', serif;
+  --font-deco:   'Cinzel Decorative', serif;
+  --font-body:   'Libre Baskerville', serif;
+}
+
+body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+img { display: block; width: 100%; object-fit: cover; }
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* ======================================================
+   SCROLL REVEAL
+====================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ======================================================
+   ORNAMENT UTILITIES
+====================================================== */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin: 0 auto 26px;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+}
+.ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+.ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ======================================================
+   CONTACT BAR
+====================================================== */
+#contact-bar {
+  background: var(--black);
+  padding: 10px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(200,144,42,0.18);
+  position: relative;
+  z-index: 200;
+}
+.contact-bar-items {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: rgba(248,240,232,0.6);
+}
+.c-icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(200,144,42,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.c-icon svg { width: 10px; height: 10px; fill: var(--gold); }
+.contact-item a { color: rgba(248,240,232,0.6); transition: color 0.2s; }
+.contact-item a:hover { color: var(--gold); }
+.contact-item strong { color: rgba(248,240,232,0.88); font-weight: 400; }
+
+.bar-order-btn {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(200,144,42,0.4);
+  padding: 8px 20px;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.bar-order-btn:hover { background: var(--gold); color: var(--black); }
+
+/* ======================================================
+   NAVIGATION
+====================================================== */
+#main-nav {
+  background: var(--black);
+  padding: 0 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  border-bottom: 1px solid rgba(200,144,42,0.12);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+#main-nav.scrolled {
+  box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  background: rgba(26,10,4,0.97);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.nav-brand-text { display: flex; flex-direction: column; }
+.nav-brand-name {
+  font-family: var(--font-deco);
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  line-height: 1.2;
+}
+.nav-brand-sub {
+  font-family: var(--font-display);
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: rgba(248,240,232,0.3);
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(248,240,232,0.55);
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.nav-links a:hover { color: var(--gold); border-bottom-color: rgba(200,144,42,0.45); }
+.nav-cta {
+  background: var(--crimson) !important;
+  color: var(--cream) !important;
+  border: none !important;
+  padding: 10px 22px;
+  border-bottom: none !important;
+}
+.nav-cta:hover { background: var(--crimson-dk) !important; color: #fff !important; }
+
+/* ======================================================
+   HERO
+====================================================== */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/7.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(139,26,26,0.15) 0%, rgba(26,10,4,0.9) 100%);
+}
+canvas#particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-frame {
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(200,144,42,0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(200,144,42,0.08);
+}
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.55;
+}
+.corner.tl { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.corner.tr { top: -1px; right: -1px; border-width: 1px 1px 0 0; }
+.corner.bl { bottom: -1px; left: -1px; border-width: 0 0 1px 1px; }
+.corner.br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 40px;
+  max-width: 860px;
+}
+.hero-logo-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 auto 32px;
+  display: block;
+  filter: brightness(1.15) drop-shadow(0 2px 20px rgba(200,144,42,0.3));
+}
+.hero-pre {
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: rgba(200,144,42,0.65);
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: var(--font-deco);
+  font-size: clamp(36px, 6vw, 72px);
+  color: var(--cream);
+  line-height: 1.18;
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+.hero-rule {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 28px auto;
+}
+.hero-sub {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(248,240,232,0.36);
+  margin-bottom: 38px;
+}
+.hero-btns {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: var(--crimson);
+  color: var(--cream);
+  border: 1px solid var(--crimson);
+  padding: 15px 42px;
+  transition: all 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--crimson-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,26,26,0.45); }
+.btn-outline {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(200,144,42,0.45);
+  padding: 15px 42px;
+  transition: all 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-outline:hover { background: rgba(200,144,42,0.1); border-color: var(--gold); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-scroll span {
+  font-family: var(--font-display);
+  font-size: 8.5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(200,144,42,0.45);
+}
+.scroll-line {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, rgba(200,144,42,0.5), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* ======================================================
+   ABOUT
+====================================================== */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+.about-photo {
+  position: relative;
+  overflow: hidden;
+}
+.about-photo img {
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.about-photo:hover img { transform: scale(1.04); }
+.about-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139,26,26,0.12) 0%, transparent 60%);
+}
+.since-badge {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  width: 92px;
+  height: 92px;
+  border: 1px solid rgba(200,144,42,0.55);
+  background: rgba(26,10,4,0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  backdrop-filter: blur(4px);
+}
+.since-badge .sw { font-family: var(--font-display); font-size: 8px; letter-spacing: 3px; color: rgba(200,144,42,0.7); text-transform: uppercase; }
+.since-badge .sy { font-family: var(--font-deco); font-size: 21px; color: var(--gold); line-height: 1; }
+
+.about-text {
+  background: var(--cream-dk);
+  padding: 80px 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 32px);
+  color: var(--crimson);
+  letter-spacing: 3px;
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+.about-text p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 2.0;
+  margin-bottom: 16px;
+}
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 8px;
+}
+.pill {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  background: rgba(139,26,26,0.04);
+  transition: background 0.2s, color 0.2s;
+}
+.pill:hover { background: rgba(139,26,26,0.1); }
+
+/* ======================================================
+   STATS BANNER
+====================================================== */
+.stats-banner {
+  background: var(--crimson);
+  padding: 30px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  border-top: 1px solid rgba(200,144,42,0.2);
+  border-bottom: 1px solid rgba(200,144,42,0.2);
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-deco);
+  font-size: 30px;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  letter-spacing: 1px;
+}
+.stat-lbl {
+  font-family: var(--font-display);
+  font-size: 8.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(248,240,232,0.5);
+  display: block;
+  margin-top: 5px;
+}
+.stat-sep { width: 1px; height: 40px; background: rgba(200,144,42,0.22); }
+
+/* ======================================================
+   SIGNATURE DISHES
+====================================================== */
+#dishes {
+  background: var(--cream);
+  padding: 96px 52px;
+}
+#dishes .section-header { text-align: center; margin-bottom: 60px; }
+#dishes .section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 38px);
+  color: var(--crimson);
+  letter-spacing: 5px;
+  margin-bottom: 6px;
+}
+#dishes .section-header p { font-size: 13.5px; color: var(--text-light); font-style: italic; }
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  max-width: 1140px;
+  margin: 0 auto;
+  background: var(--border);
+}
+.dish-card {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.dish-card:hover { background: #F5EBE0; }
+.dish-img {
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  background: var(--cream-dk);
+}
+.dish-img img {
+  height: 100%;
+  transition: transform 0.65s ease;
+  object-fit: cover;
+}
+.dish-card:hover .dish-img img { transform: scale(1.07); }
+.dish-info {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--border);
+}
+.dish-num { font-family: var(--font-deco); font-size: 10px; color: rgba(200,144,42,0.4); letter-spacing: 3px; margin-bottom: 12px; }
+.dish-name { font-family: var(--font-display); font-size: 16px; color: var(--crimson); letter-spacing: 2px; margin-bottom: 10px; line-height: 1.35; }
+.dish-desc { font-size: 13px; color: var(--text-mid); line-height: 1.85; margin-bottom: 18px; }
+.dish-price { font-family: var(--font-display); font-size: 16px; color: var(--gold); letter-spacing: 1px; }
+.dish-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  align-self: flex-start;
+}
+
+/* ======================================================
+   MENU (TABBED)
+====================================================== */
+#menu {
+  background: var(--black);
+  padding: 96px 52px;
+  position: relative;
+  overflow: hidden;
+}
+#menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/3.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+}
+.menu-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+#menu .section-header { text-align: center; margin-bottom: 44px; }
+#menu .section-header h2 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); color: var(--gold); letter-spacing: 5px; margin-bottom: 6px; }
+#menu .section-header p { font-size: 13px; color: rgba(248,240,232,0.35); font-style: italic; }
+
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 44px;
+  border: 1px solid rgba(200,144,42,0.18);
+}
+.menu-tab {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(248,240,232,0.4);
+  padding: 14px 36px;
+  cursor: pointer;
+  border-right: 1px solid rgba(200,144,42,0.18);
+  transition: all 0.25s;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+}
+.menu-tab:last-child { border-right: none; }
+.menu-tab.active {
+  color: var(--gold);
+  background: rgba(200,144,42,0.08);
+  border-top: 2px solid var(--gold);
+}
+.menu-tab:hover:not(.active) { color: rgba(248,240,232,0.7); background: rgba(255,255,255,0.03); }
+
+.menu-panel { display: none; }
+.menu-panel.active { display: block; animation: fadeIn 0.35s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.menu-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid rgba(200,144,42,0.12);
+}
+.menu-col { padding: 40px 36px; border-right: 1px solid rgba(200,144,42,0.1); }
+.menu-col:last-child { border-right: none; }
+.menu-col h3 {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(200,144,42,0.18);
+}
+.menu-item {
+  display: block;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(200,144,42,0.05);
+}
+.menu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.menu-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.menu-item-name { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 1px; color: rgba(248,240,232,0.78); flex: 1; }
+.menu-item-dots { flex: 1; border-bottom: 1px dotted rgba(200,144,42,0.18); height: 13px; margin: 0 5px; }
+.menu-item-price { font-family: var(--font-display); font-size: 11px; color: var(--gold); white-space: nowrap; }
+.menu-item-desc {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-style: italic;
+  color: rgba(248,240,232,0.35);
+  margin-top: 5px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.menu-cta { text-align: center; margin-top: 48px; }
+
+/* ======================================================
+   REVIEWS
+====================================================== */
+#reviews {
+  background: var(--cream-dk);
+  padding: 96px 52px;
+}
+#reviews .section-header { text-align: center; margin-bottom: 44px; }
+#reviews .section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 36px);
+  color: var(--crimson);
+  letter-spacing: 5px;
+  margin-bottom: 18px;
+}
+.g-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.g-logo-text {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.g-b { color: #4285F4; } .g-r { color: #EA4335; } .g-y { color: #FBBC05; } .g-g { color: #34A853; }
+.g-score { font-family: var(--font-display); font-size: 40px; color: var(--text); line-height: 1; letter-spacing: -1px; }
+.g-meta { display: flex; flex-direction: column; gap: 4px; }
+.stars-row { display: flex; gap: 3px; }
+.star-svg { width: 15px; height: 15px; }
+.star-svg svg { width: 100%; height: 100%; }
+.g-count { font-family: var(--font-display); font-size: 9.5px; letter-spacing: 1.5px; color: var(--text-light); text-transform: uppercase; }
+
+/* Review Slider */
+.reviews-slider-wrap {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto 36px;
+  overflow: hidden;
+}
+.reviews-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 20px;
+}
+.review-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 32px 28px;
+  position: relative;
+  flex: 0 0 calc(33.333% - 14px);
+  min-width: 0;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.review-card:hover { box-shadow: 0 6px 28px rgba(139,26,26,0.1); transform: translateY(-3px); }
+.review-top-bar { position: absolute; top: 0; left: 28px; right: 28px; height: 2px; background: var(--crimson); opacity: 0.7; }
+.g-badge { position: absolute; top: 16px; right: 18px; font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; opacity: 0.4; }
+.reviewer-row { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+.reviewer-av {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.reviewer-name { font-family: var(--font-display); font-size: 12px; letter-spacing: 1px; color: var(--text); }
+.reviewer-meta { font-size: 11px; color: var(--text-light); margin-top: 2px; font-style: italic; }
+.review-stars { display: flex; gap: 2px; margin-bottom: 13px; }
+.rs { width: 13px; height: 13px; }
+.rs svg { width: 100%; height: 100%; }
+.review-text { font-size: 13px; color: var(--text-mid); line-height: 1.85; font-style: italic; }
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 0;
+}
+.slider-btn {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--crimson);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s;
+  font-family: var(--font-display);
+}
+.slider-btn:hover { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+.slider-dots { display: flex; gap: 8px; }
+.slider-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
+.slider-dot.active { background: var(--crimson); }
+
+.reviews-footer { text-align: center; margin-top: 16px; }
+.reviews-footer a {
+  font-family: var(--font-display); font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--crimson); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.2s;
+}
+.reviews-footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ======================================================
+   GALLERY (LIGHTBOX)
+====================================================== */
+#gallery { background: var(--black); padding: 96px 52px; }
+#gallery .section-header { text-align: center; margin-bottom: 48px; }
+#gallery .section-header h2 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); color: var(--gold); letter-spacing: 5px; margin-bottom: 6px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 3px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.g-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #1A0A04;
+}
+.g-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.85) saturate(0.88);
+}
+.g-item:hover img { transform: scale(1.08); filter: brightness(1) saturate(1.1); }
+.g-item.span2 { grid-column: span 2; }
+.g-item.tall { grid-row: span 2; }
+.g-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,10,4,0.82) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+.g-item:hover .g-overlay { opacity: 1; }
+.g-caption {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,4,0,0.96);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 88vw; max-height: 86vh;
+  object-fit: contain;
+  width: auto; height: auto;
+  border: 1px solid rgba(200,144,42,0.25);
+  box-shadow: 0 0 80px rgba(0,0,0,0.7);
+  animation: lbIn 0.3s ease;
+}
+@keyframes lbIn { from { opacity: 0; transform: scale(0.93); } to { opacity: 1; transform: scale(1); } }
+.lb-close {
+  position: absolute; top: 24px; right: 32px;
+  color: rgba(200,144,42,0.7); font-size: 30px; cursor: pointer;
+  font-family: var(--font-display); transition: color 0.2s;
+  background: none; border: none; line-height: 1;
+}
+.lb-close:hover { color: var(--gold); }
+.lb-caption {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-display); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(200,144,42,0.6);
+}
+.lb-prev, .lb-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  color: rgba(200,144,42,0.55); font-size: 26px; cursor: pointer;
+  background: rgba(26,10,4,0.5); border: 1px solid rgba(200,144,42,0.18);
+  width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.lb-prev { left: 28px; }
+.lb-next { right: 28px; }
+.lb-prev:hover, .lb-next:hover { color: var(--gold); background: rgba(200,144,42,0.1); }
+
+/* ======================================================
+   LOCATION
+====================================================== */
+#location { display: grid; grid-template-columns: 1fr 1fr; }
+.location-map { position: relative; min-height: 500px; overflow: hidden; }
+.location-map iframe { width: 100%; height: 100%; border: none; display: block; filter: sepia(15%) saturate(0.85); }
+
+.location-info {
+  background: var(--cream-dk);
+  padding: 76px 68px;
+  display: flex; flex-direction: column; justify-content: center; gap: 36px;
+  border-left: 1px solid var(--border);
+}
+.location-info h2 { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 28px); color: var(--crimson); letter-spacing: 4px; }
+.info-group h4 { font-family: var(--font-display); font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.info-group p, .info-group a { font-size: 14px; color: var(--text-mid); line-height: 1.9; display: block; }
+.info-group a { color: var(--text-mid); transition: color 0.2s; }
+.info-group a:hover { color: var(--crimson); }
+
+.hours-table {}
+.hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-mid);
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row .day { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 1px; color: var(--text); }
+.hours-row .time { color: var(--text-light); font-style: italic; font-size: 12.5px; }
+.hours-row .closed { color: rgba(139,26,26,0.45); font-style: italic; font-size: 11.5px; letter-spacing: 1px; }
+
+.byob-box {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(139,26,26,0.05); border: 1px solid var(--border); padding: 15px 18px;
+}
+.byob-mark { font-family: var(--font-deco); font-size: 13px; color: var(--crimson); white-space: nowrap; }
+.byob-box p { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; font-style: italic; }
+
+/* ======================================================
+   ORDER CTA
+====================================================== */
+#order-cta {
+  background: var(--crimson);
+  padding: 96px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#order-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5.jpg');
+  background-size: cover; background-position: center; opacity: 0.07;
+}
+.cta-frame { position: absolute; inset: 22px; border: 1px solid rgba(200,144,42,0.18); pointer-events: none; }
+.cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+#order-cta h2 { font-family: var(--font-display); font-size: clamp(22px, 4vw, 48px); color: var(--gold); letter-spacing: 5px; line-height: 1.25; margin-bottom: 14px; }
+#order-cta p { font-size: 15px; color: rgba(248,240,232,0.65); margin-bottom: 38px; font-style: italic; }
+.cta-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+.btn-gold {
+  font-family: var(--font-display); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  background: var(--gold); color: var(--black); border: 1px solid var(--gold);
+  padding: 15px 46px; transition: all 0.3s; display: inline-block; font-weight: 600;
+}
+.btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,144,42,0.35); }
+
+.btn-cream-ol {
+  font-family: var(--font-display); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  background: transparent; color: rgba(248,240,232,0.7); border: 1px solid rgba(248,240,232,0.3);
+  padding: 15px 46px; transition: all 0.3s; display: inline-block;
+}
+.btn-cream-ol:hover { background: rgba(248,240,232,0.08); color: var(--cream); border-color: rgba(248,240,232,0.6); }
+
+/* ======================================================
+   FOOTER
+====================================================== */
+#footer { background: var(--black-soft); border-top: 1px solid rgba(200,144,42,0.1); }
+.footer-main {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  padding: 68px 52px 52px; border-bottom: 1px solid rgba(200,144,42,0.08);
+  gap: 0;
+}
+.footer-col { padding-right: 40px; }
+.footer-logo-img { height: 52px; width: auto; object-fit: contain; margin-bottom: 10px; }
+.footer-logo-name { font-family: var(--font-deco); font-size: 14px; color: var(--gold); letter-spacing: 3px; margin-bottom: 3px; }
+.footer-logo-sub { font-family: var(--font-display); font-size: 8px; letter-spacing: 5px; text-transform: uppercase; color: rgba(248,240,232,0.25); margin-bottom: 20px; }
+.footer-about { font-size: 13px; color: rgba(248,240,232,0.38); line-height: 1.9; font-style: italic; }
+.footer-col h4 {
+  font-family: var(--font-display); font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(200,144,42,0.12);
+}
+.footer-col ul li { margin-bottom: 11px; }
+.footer-col ul li a { font-family: var(--font-display); font-size: 9.5px; letter-spacing: 1.5px; color: rgba(248,240,232,0.4); transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-col p { font-size: 12.5px; color: rgba(248,240,232,0.4); line-height: 1.9; margin-bottom: 6px; }
+.footer-col p strong { color: rgba(248,240,232,0.65); font-weight: 400; font-family: var(--font-display); font-size: 10px; letter-spacing: 1px; }
+.footer-col a.footer-link { color: rgba(248,240,232,0.4); transition: color 0.2s; }
+.footer-col a.footer-link:hover { color: var(--gold); }
+.footer-bottom {
+  padding: 20px 52px; display: flex; align-items: center; justify-content: space-between;
+}
+.footer-bottom p { font-family: var(--font-display); font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase; color: rgba(248,240,232,0.2); }
+
+</style>
+</head>
+<body>
+
+<!-- ======================================================
+     CONTACT BAR
+====================================================== -->
+<div id="contact-bar">
+  <div class="contact-bar-items">
+    <div class="contact-item">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </div>
+      <a href="tel:9732398880"><strong>(973) 239-8880</strong></a>
+    </div>
+    <div class="contact-item">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <span>577B Pompton Ave, Cedar Grove, NJ 07009</span>
+    </div>
+    <div class="contact-item">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      </div>
+      <span>Mon - Thu &nbsp;<strong>11am - 10pm</strong>&nbsp; | &nbsp;Fri - Sat &nbsp;<strong>11am - 10:30pm</strong></span>
+    </div>
+  </div>
+  <a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main" target="_blank" class="bar-order-btn">Order Online</a>
+</div>
+
+
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-brand">
+    <img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+         alt="Kyoto Sushi III Logo"
+         class="nav-logo-img"
+         onerror="this.style.display='none'">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Kyoto Sushi III</span>
+      <span class="nav-brand-sub">Cedar Grove, New Jersey</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#dishes">Specialties</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main" target="_blank" class="nav-cta">Order Online</a></li>
+  </ul>
+</nav>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+<section id="hero">
+  <div class="hero-bg" id="hero-parallax"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="particles"></canvas>
+
+  <div class="hero-frame">
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+  </div>
+
+  <div class="hero-content">
+    <img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+         alt="Kyoto Sushi III"
+         class="hero-logo-img"
+         onerror="this.style.display='none'">
+    <p class="hero-pre">Cedar Grove, New Jersey &nbsp;&#183;&nbsp; Since 2008</p>
+    <h1 class="hero-title">Kyoto<br>Sushi III</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Authentic Japanese Cuisine &nbsp;&#183;&nbsp; Fresh Daily &nbsp;&#183;&nbsp; BYOB Welcome</p>
+    <div class="hero-btns">
+      <a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main" target="_blank" class="btn-primary">Order Online</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+<section id="about">
+  <div class="about-photo reveal-left">
+    <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/3-1.jpg"
+         alt="Specialty sushi rolls at Kyoto Sushi III">
+    <div class="about-photo-overlay"></div>
+    <div class="since-badge">
+      <span class="sw">Est.</span>
+      <span class="sy">2008</span>
+    </div>
+  </div>
+  <div class="about-text reveal-right">
+    <span class="section-label">Our Story</span>
+    <div class="ornament">&#10022;</div>
+    <h2>A Cedar Grove Tradition, Sixteen Years Strong</h2>
+    <p>Tucked away on Pompton Avenue in Cedar Grove, Kyoto Sushi III has been serving some of the finest Japanese food in New Jersey since 2008. What started as a simple passion for quality fish and honest cooking has grown into one of the most beloved spots in Essex County.</p>
+    <p>Our chefs hand-select the freshest fish each morning and craft every roll, nigiri, and sashimi plate with real care. From our crowd-favorite Pink Lady Roll to full hibachi dinners, every plate reflects a genuine love for Japanese food, served in a warm and welcoming space that keeps guests coming back.</p>
+    <div class="about-pills">
+      <span class="pill">BYOB Welcome</span>
+      <span class="pill">Fresh Fish Daily</span>
+      <span class="pill">Dine In</span>
+      <span class="pill">Takeout</span>
+      <span class="pill">Delivery</span>
+      <span class="pill">Free Parking</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="stat-item reveal reveal-delay-1">
+    <span class="stat-num" data-count="4.7" data-decimal="1">4.7</span>
+    <span class="stat-lbl">Google Rating</span>
+  </div>
+  <div class="stat-sep"></div>
+  <div class="stat-item reveal reveal-delay-2">
+    <span class="stat-num" data-count="16" data-suffix="+">16+</span>
+    <span class="stat-lbl">Years in Business</span>
+  </div>
+  <div class="stat-sep"></div>
+  <div class="stat-item reveal reveal-delay-3">
+    <span class="stat-num" data-count="117" data-suffix="+">117+</span>
+    <span class="stat-lbl">Google Reviews</span>
+  </div>
+  <div class="stat-sep"></div>
+  <div class="stat-item reveal reveal-delay-4">
+    <span class="stat-num" data-count="4.5" data-decimal="1">4.5</span>
+    <span class="stat-lbl">TripAdvisor</span>
+  </div>
+</div>
+
+
+<!-- ======================================================
+     SIGNATURE DISHES
+====================================================== -->
+<section id="dishes">
+  <div class="section-header reveal">
+    <span class="section-label">From the Kitchen</span>
+    <div class="ornament">&#10022;</div>
+    <h2>Signature Specialties</h2>
+    <p>Each dish is prepared fresh every day from the best available ingredients</p>
+  </div>
+
+  <div class="dishes-grid">
+    <div class="dish-card reveal reveal-delay-1">
+      <div class="dish-img">
+        <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/4.jpg"
+             alt="Pink Lady Roll">
+      </div>
+      <div class="dish-info">
+        <div class="dish-num">01</div>
+        <div class="dish-name">Pink Lady Roll</div>
+        <div class="dish-desc">Shrimp tempura and avocado wrapped in delicate pink soy paper, finished with house spicy mayo and rich eel sauce. One of our most requested rolls.</div>
+        <div class="dish-price">$16</div>
+        <span class="dish-tag">House Specialty</span>
+      </div>
+    </div>
+
+    <div class="dish-card reveal reveal-delay-2">
+      <div class="dish-img">
+        <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5-1.jpg"
+             alt="Roast Duck Roll">
+      </div>
+      <div class="dish-info">
+        <div class="dish-num">02</div>
+        <div class="dish-name">Roast Duck Roll</div>
+        <div class="dish-desc">Slow-roasted duck with crisp cucumber and scallion, finished with a rich hoisin glaze and toasted sesame. A true signature of the house.</div>
+        <div class="dish-price">$18</div>
+        <span class="dish-tag">Chef's Selection</span>
+      </div>
+    </div>
+
+    <div class="dish-card reveal reveal-delay-3">
+      <div class="dish-img">
+        <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/6.jpg"
+             alt="Sushi Pizza">
+      </div>
+      <div class="dish-info">
+        <div class="dish-num">03</div>
+        <div class="dish-name">Sushi Pizza</div>
+        <div class="dish-desc">A crispy rice base loaded with spicy tuna, fresh avocado, jalapeño, and a bright ponzu drizzle. A creative appetizer that guests keep coming back for.</div>
+        <div class="dish-price">$15</div>
+        <span class="dish-tag">Guest Favorite</span>
+      </div>
+    </div>
+
+    <div class="dish-card reveal reveal-delay-4">
+      <div class="dish-img">
+        <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/8.jpg"
+             alt="Tuna Taco">
+      </div>
+      <div class="dish-info">
+        <div class="dish-num">04</div>
+        <div class="dish-name">Tuna Taco</div>
+        <div class="dish-desc">Crispy wonton shells filled with fresh hand-cut tuna, mango salsa, micro-greens, and a house citrus aioli. Light, fresh, and full of flavor.</div>
+        <div class="dish-price">$14</div>
+        <span class="dish-tag">Seasonal Favorite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     MENU (TABBED)
+====================================================== -->
+<section id="menu">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <span class="section-label" style="color:rgba(200,144,42,0.65)">Full Menu</span>
+      <div class="ornament">&#10022;</div>
+      <h2>Our Menu</h2>
+      <p style="color:rgba(248,240,232,0.35);font-style:italic;font-size:13px;">A selection of our most celebrated offerings</p>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" onclick="switchTab('appetizers',this)">Appetizers</button>
+      <button class="menu-tab" onclick="switchTab('rolls',this)">Specialty Rolls</button>
+      <button class="menu-tab" onclick="switchTab('entrees',this)">Entrees &amp; Hibachi</button>
+    </div>
+
+    <!-- Appetizers -->
+    <div class="menu-panel active" id="panel-appetizers">
+      <div class="menu-cols">
+        <div class="menu-col">
+          <h3>Soups &amp; Salads</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Miso Soup</span><span class="menu-item-dots"></span><span class="menu-item-price">$3</span></div>
+            <p class="menu-item-desc">Traditional Japanese broth with silken tofu, wakame, and scallion</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Clear Soup</span><span class="menu-item-dots"></span><span class="menu-item-price">$3</span></div>
+            <p class="menu-item-desc">A delicate, light consomme gently seasoned with dashi</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">House Salad</span><span class="menu-item-dots"></span><span class="menu-item-price">$6</span></div>
+            <p class="menu-item-desc">Crisp mixed greens with our housemade ginger dressing</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Seaweed Salad</span><span class="menu-item-dots"></span><span class="menu-item-price">$7</span></div>
+            <p class="menu-item-desc">Chilled wakame tossed in sesame oil, rice vinegar, and toasted sesame seeds</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Edamame</span><span class="menu-item-dots"></span><span class="menu-item-price">$5</span></div>
+            <p class="menu-item-desc">Steamed young soybeans, finished with a touch of sea salt</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Agedashi Tofu</span><span class="menu-item-dots"></span><span class="menu-item-price">$6</span></div>
+            <p class="menu-item-desc">Lightly fried silken tofu in savory dashi broth with grated daikon and bonito</p>
+          </div>
+        </div>
+        <div class="menu-col">
+          <h3>Small Plates</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Gyoza (6 pcs)</span><span class="menu-item-dots"></span><span class="menu-item-price">$7</span></div>
+            <p class="menu-item-desc">Pan-fried pork and vegetable dumplings, crispy underneath, tender inside</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Shumai (6 pcs)</span><span class="menu-item-dots"></span><span class="menu-item-price">$7</span></div>
+            <p class="menu-item-desc">Steamed shrimp and pork dumplings with a hint of fresh ginger</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Tuna Dumpling</span><span class="menu-item-dots"></span><span class="menu-item-price">$11</span></div>
+            <p class="menu-item-desc">Housemade dumplings filled with fresh tuna and herbs, served with ponzu sauce</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Sushi Pizza</span><span class="menu-item-dots"></span><span class="menu-item-price">$15</span></div>
+            <p class="menu-item-desc">Crispy fried rice base topped with spicy tuna, avocado, jalapeño, and ponzu drizzle</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Tuna Taco</span><span class="menu-item-dots"></span><span class="menu-item-price">$14</span></div>
+            <p class="menu-item-desc">Crispy wonton shells filled with spicy tuna, fresh avocado, and micro greens</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Crispy Tuna Salsa</span><span class="menu-item-dots"></span><span class="menu-item-price">$13</span></div>
+            <p class="menu-item-desc">Diced fresh tuna with tomato, jalapeño, and sesame oil, served with crispy rice chips</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rolls -->
+    <div class="menu-panel" id="panel-rolls">
+      <div class="menu-cols">
+        <div class="menu-col">
+          <h3>Classic Rolls</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">California Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$8</span></div>
+            <p class="menu-item-desc">Crab, avocado, and cucumber rolled in toasted sesame seeds</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Spicy Tuna Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$9</span></div>
+            <p class="menu-item-desc">Fresh tuna with our housemade spicy mayo and crisp cucumber</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Salmon Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$8</span></div>
+            <p class="menu-item-desc">Fresh Atlantic salmon rolled simply with seasoned sushi rice</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Tuna Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$8</span></div>
+            <p class="menu-item-desc">Clean slices of fresh tuna, rolled with rice and nori, nothing more needed</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Shrimp Tempura Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$10</span></div>
+            <p class="menu-item-desc">Lightly battered shrimp with cucumber, finished with sweet eel sauce</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Philadelphia Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$9</span></div>
+            <p class="menu-item-desc">Smoked salmon with cream cheese and cool cucumber</p>
+          </div>
+        </div>
+        <div class="menu-col">
+          <h3>Signature Rolls</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Pink Lady Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$16</span></div>
+            <p class="menu-item-desc">Shrimp tempura and avocado wrapped in pink soy paper, topped with spicy mayo and eel sauce</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Roast Duck Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$18</span></div>
+            <p class="menu-item-desc">Slow-roasted duck with cucumber and scallion, finished with a rich hoisin glaze</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Dragon Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$16</span></div>
+            <p class="menu-item-desc">Shrimp tempura inside, draped in thinly layered avocado with eel sauce</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Rainbow Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$17</span></div>
+            <p class="menu-item-desc">California roll topped with alternating slices of tuna, salmon, and white fish</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Spider Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$15</span></div>
+            <p class="menu-item-desc">Soft-shell crab with avocado, cucumber, and housemade spicy mayo</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Volcano Roll</span><span class="menu-item-dots"></span><span class="menu-item-price">$16</span></div>
+            <p class="menu-item-desc">California roll piled high with baked scallop and crab in rich spicy mayo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entrees -->
+    <div class="menu-panel" id="panel-entrees">
+      <div class="menu-cols">
+        <div class="menu-col">
+          <h3>Hibachi</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Hibachi Chicken</span><span class="menu-item-dots"></span><span class="menu-item-price">$18</span></div>
+            <p class="menu-item-desc">Tender grilled chicken with fried rice, vegetables, and our house hibachi sauce</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Hibachi Steak</span><span class="menu-item-dots"></span><span class="menu-item-price">$22</span></div>
+            <p class="menu-item-desc">Grilled sliced steak with fried rice, fresh vegetables, and savory dipping sauces</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Hibachi Shrimp</span><span class="menu-item-dots"></span><span class="menu-item-price">$20</span></div>
+            <p class="menu-item-desc">Jumbo shrimp grilled with garlic butter, fried rice, and seasonal vegetables</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Hibachi Combo</span><span class="menu-item-dots"></span><span class="menu-item-price">$24</span></div>
+            <p class="menu-item-desc">Your choice of two proteins served with fried rice and garden vegetables</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Hibachi Salmon</span><span class="menu-item-dots"></span><span class="menu-item-price">$22</span></div>
+            <p class="menu-item-desc">Fresh Atlantic salmon fillet grilled with lemon butter and seasonal vegetables</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Dinner Box (Choice)</span><span class="menu-item-dots"></span><span class="menu-item-price">$22</span></div>
+            <p class="menu-item-desc">Your choice of protein with steamed rice, miso soup, and a seasonal side salad</p>
+          </div>
+        </div>
+        <div class="menu-col">
+          <h3>Entrees</h3>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Sashimi Dinner (20 pcs)</span><span class="menu-item-dots"></span><span class="menu-item-price">$34</span></div>
+            <p class="menu-item-desc">Twenty pieces of the chef's freshest daily cuts, elegantly presented over shredded daikon</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Chirashi Bowl</span><span class="menu-item-dots"></span><span class="menu-item-price">$28</span></div>
+            <p class="menu-item-desc">Assorted sliced sashimi arranged over a bed of hand-pressed seasoned sushi rice</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Teriyaki Salmon</span><span class="menu-item-dots"></span><span class="menu-item-price">$19</span></div>
+            <p class="menu-item-desc">Grilled salmon fillet glazed in our house teriyaki sauce, served with steamed rice</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Teriyaki Chicken</span><span class="menu-item-dots"></span><span class="menu-item-price">$17</span></div>
+            <p class="menu-item-desc">Grilled chicken breast with a sweet teriyaki glaze, rice, and sauteed vegetables</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Udon Noodle Soup</span><span class="menu-item-dots"></span><span class="menu-item-price">$14</span></div>
+            <p class="menu-item-desc">Thick Japanese wheat noodles in a warm dashi broth with tofu, fishcake, and scallion</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-row"><span class="menu-item-name">Pad Thai Noodles</span><span class="menu-item-dots"></span><span class="menu-item-price">$15</span></div>
+            <p class="menu-item-desc">Stir-fried rice noodles with egg, bean sprouts, and scallion in a savory tamarind sauce</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-cta reveal">
+      <a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main"
+         target="_blank"
+         class="btn-outline"
+         style="color:var(--gold);border-color:rgba(200,144,42,0.45);">
+        View Full Menu &amp; Order Online
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     REVIEWS
+====================================================== -->
+<section id="reviews">
+  <div class="section-header reveal">
+    <span class="section-label">What Guests Are Saying</span>
+    <div class="ornament">&#10022;</div>
+    <h2>Guest Reviews</h2>
+    <div class="g-summary">
+      <div class="g-logo-text"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+      <span class="g-score">4.7</span>
+      <div class="g-meta">
+        <div class="stars-row">
+          <span class="star-svg"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="star-svg"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="star-svg"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="star-svg"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="star-svg"><svg viewBox="0 0 24 24" fill="#C8902A" opacity="0.4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <span class="g-count">117+ Reviews</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-slider-wrap reveal">
+    <div class="reviews-track" id="reviews-track">
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#8B1A1A;">M</div>
+          <div><div class="reviewer-name">Michelle T.</div><div class="reviewer-meta">Local Guide &middot; March 2025</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"The Pink Lady Roll makes the trip worth it every single time. We've been coming here for years and the fish quality never drops. The staff remembers our order, the atmosphere is warm and cozy. This is exactly what a great neighborhood sushi spot should be."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#2C5F2E;">D</div>
+          <div><div class="reviewer-name">David R.</div><div class="reviewer-meta">5 reviews &middot; January 2025</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"Best sushi in Essex County, hands down. The freshness of the fish here is something else. The sashimi just melts. The Roast Duck Roll is a must-order. Service was attentive and the whole experience felt genuinely special. We'll be back."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#0369A1;">S</div>
+          <div><div class="reviewer-name">Sarah K.</div><div class="reviewer-meta">Local Guide &middot; November 2024</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"Came for a date night and could not have been more pleased. The atmosphere is cozy and intimate, every dish is beautifully presented, and the sushi quality rivals places three times the price. The BYOB policy is a great bonus too."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#5A3A2A;">J</div>
+          <div><div class="reviewer-name">James P.</div><div class="reviewer-meta">42 reviews &middot; September 2024</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"We've been regulars for over five years. Kyoto Sushi III is one of the most consistently excellent restaurants in New Jersey. The Sushi Pizza is one of the most inventive appetizers I've ever had. Not once have we had a disappointing visit."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#3D6E8A;">A</div>
+          <div><div class="reviewer-name">Amanda L.</div><div class="reviewer-meta">8 reviews &middot; July 2024</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"The service here is really wonderful. Attentive but never hovering, warm and genuinely welcoming. The food is always beautiful and the fish is always fresh. Kyoto Sushi III is one of those rare neighborhood finds that you feel lucky to know about."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top-bar"></div>
+        <div class="g-badge"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></div>
+        <div class="reviewer-row">
+          <div class="reviewer-av" style="background:#6A1010;">R</div>
+          <div><div class="reviewer-name">Robert M.</div><div class="reviewer-meta">Local Guide &middot; April 2024</div></div>
+        </div>
+        <div class="review-stars">
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="rs"><svg viewBox="0 0 24 24" fill="#C8902A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        </div>
+        <p class="review-text">"Been coming since they opened. The quality has never slipped and that says everything. Every piece of sashimi is cut with real precision and care. I've brought clients, family, and friends over the years and it has never once let anyone down."</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="slider-controls reveal">
+    <button class="slider-btn" id="prev-btn" onclick="slideReviews(-1)">&#8592;</button>
+    <div class="slider-dots" id="slider-dots"></div>
+    <button class="slider-btn" id="next-btn" onclick="slideReviews(1)">&#8594;</button>
+  </div>
+  <div class="reviews-footer" style="margin-top:24px;">
+    <a href="https://www.google.com/maps/search/Kyoto+Sushi+III+Cedar+Grove+NJ" target="_blank">Read All Reviews on Google &rarr;</a>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     GALLERY
+====================================================== -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <span class="section-label" style="color:rgba(200,144,42,0.65)">From Our Kitchen</span>
+    <div class="ornament">&#10022;</div>
+    <h2>Gallery</h2>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="g-item span2 reveal" onclick="openLightbox(0)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/3-1.jpg" alt="Sushi Platter">
+      <div class="g-overlay"><span class="g-caption">Signature Platter</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-1" onclick="openLightbox(1)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/4.jpg" alt="Specialty Rolls">
+      <div class="g-overlay"><span class="g-caption">Specialty Rolls</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-2" onclick="openLightbox(2)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5.jpg" alt="Fresh Nigiri">
+      <div class="g-overlay"><span class="g-caption">Fresh Nigiri</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-1" onclick="openLightbox(3)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/6.jpg" alt="Premium Sashimi">
+      <div class="g-overlay"><span class="g-caption">Premium Sashimi</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-2" onclick="openLightbox(4)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5-1.jpg" alt="Japanese Cuisine">
+      <div class="g-overlay"><span class="g-caption">Japanese Cuisine</span></div>
+    </div>
+    <div class="g-item span2 reveal reveal-delay-3" onclick="openLightbox(5)">
+      <img src="https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/8.jpg" alt="Maki Selection">
+      <div class="g-overlay"><span class="g-caption">Maki Selection</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">&times;</button>
+  <button class="lb-prev" onclick="shiftLightbox(-1)">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" onclick="shiftLightbox(1)">&#8594;</button>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+
+<!-- ======================================================
+     LOCATION
+====================================================== -->
+<section id="location">
+  <div class="location-map reveal-left">
+    <iframe
+      title="Kyoto Sushi III"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDg46OyYi81C9HfsYZU-cMso5AViuIwGms&q=577+B+Pompton+Ave,+Cedar+Grove,+NJ+07009&zoom=15&language=en_US"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div class="location-info reveal-right">
+    <div>
+      <span class="section-label">Find Us</span>
+      <h2>Hours &amp; Location</h2>
+    </div>
+    <div class="info-group">
+      <h4>Address</h4>
+      <a href="https://maps.google.com/?q=577+Pompton+Ave+Cedar+Grove+NJ" target="_blank">
+        577B Pompton Avenue<br>Cedar Grove, NJ 07009
+      </a>
+    </div>
+    <div class="info-group">
+      <h4>Phone</h4>
+      <a href="tel:9732398880">(973) 239-8880</a>
+    </div>
+    <div class="info-group">
+      <h4>Hours of Operation</h4>
+      <div class="hours-table">
+        <div class="hours-row"><span class="day">Monday</span><span class="time">11:00 AM - 10:00 PM</span></div>
+        <div class="hours-row"><span class="day">Tuesday</span><span class="time">11:00 AM - 10:00 PM</span></div>
+        <div class="hours-row"><span class="day">Wednesday</span><span class="time">11:00 AM - 10:00 PM</span></div>
+        <div class="hours-row"><span class="day">Thursday</span><span class="time">11:00 AM - 10:00 PM</span></div>
+        <div class="hours-row"><span class="day">Friday</span><span class="time">11:00 AM - 10:30 PM</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">11:00 AM - 10:30 PM</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="closed">Closed</span></div>
+      </div>
+    </div>
+    <div class="byob-box">
+      <span class="byob-mark">BYOB</span>
+      <p>Guests are welcome to bring their own wine, sake, or beer. No corkage fee. Free parking available on premises.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     ORDER CTA
+====================================================== -->
+<section id="order-cta">
+  <div class="cta-frame"></div>
+  <div class="cta-inner reveal">
+    <span class="section-label" style="color:rgba(200,144,42,0.6)">Ready to Dine?</span>
+    <div class="ornament">&#10022;</div>
+    <h2>Order Online or Give Us a Call</h2>
+    <p>Fresh sushi made daily. Available for dine-in, takeout, and delivery throughout Cedar Grove and the surrounding areas.</p>
+    <div class="cta-btns">
+      <a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main" target="_blank" class="btn-gold">Order Online</a>
+      <a href="tel:9732398880" class="btn-cream-ol">Call (973) 239-8880</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-col">
+      <img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+           alt="Kyoto Sushi III"
+           class="footer-logo-img"
+           onerror="this.style.display='none'">
+      <div class="footer-logo-name">Kyoto Sushi III</div>
+      <div class="footer-logo-sub">Cedar Grove, New Jersey</div>
+      <p class="footer-about">Serving fresh, authentic Japanese cuisine since 2008. One of Essex County's most loved sushi restaurants, right in the heart of Cedar Grove, NJ.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#dishes">Signature Dishes</a></li>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#reviews">Guest Reviews</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#location">Hours &amp; Location</a></li>
+        <li><a href="https://order.mealkeyway.com/merchant/7864326130306f6e77664747543172797973745372773d3d/main" target="_blank">Order Online</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><strong>Address</strong><br>577B Pompton Ave<br>Cedar Grove, NJ 07009</p>
+      <p style="margin-top:14px;"><strong>Phone</strong><br><a href="tel:9732398880" class="footer-link">(973) 239-8880</a></p>
+      <p style="margin-top:14px;"><strong>Hours</strong><br>Mon - Thu: 11am - 10pm<br>Fri - Sat: 11am - 10:30pm<br>Sunday: Closed</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Kyoto Sushi III. All rights reserved. Cedar Grove, New Jersey.</p>
+    <p>577B Pompton Ave &nbsp;&#183;&nbsp; (973) 239-8880</p>
+  </div>
+</footer>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+<script>
+
+/* ---- PARALLAX HERO ---- */
+const heroBg = document.getElementById('hero-parallax');
+window.addEventListener('scroll', () => {
+  const y = window.pageYOffset;
+  if (y < window.innerHeight * 1.2) {
+    heroBg.style.transform = `translateY(${y * 0.38}px)`;
+  }
+});
+
+/* ---- STICKY NAV STYLE ---- */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.pageYOffset > 60);
+});
+
+/* ---- SCROLL REVEAL ---- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObs.observe(el));
+
+/* ---- ANIMATED COUNTERS ---- */
+function animateCount(el) {
+  const target     = parseFloat(el.dataset.count);
+  const decimal    = parseInt(el.dataset.decimal || '0');
+  const suffix     = el.dataset.suffix || '';
+  const duration   = 1800;
+  const steps      = 60;
+  const interval   = duration / steps;
+  let current      = 0;
+  const increment  = target / steps;
+  const timer = setInterval(() => {
+    current = Math.min(current + increment, target);
+    el.textContent = current.toFixed(decimal) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, interval);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.target.dataset.count) {
+      animateCount(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+
+/* ---- GOLD PARTICLE SYSTEM ---- */
+(function() {
+  const canvas = document.getElementById('particles');
+  const ctx    = canvas.getContext('2d');
+  let particles = [];
+  let animId;
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function Particle() {
+    this.reset = function() {
+      this.x    = Math.random() * canvas.width;
+      this.y    = canvas.height + Math.random() * 40;
+      this.r    = Math.random() * 1.4 + 0.4;
+      this.vy   = -(Math.random() * 0.5 + 0.15);
+      this.vx   = (Math.random() - 0.5) * 0.3;
+      this.life = Math.random() * 0.3 + 0.06;
+    };
+    this.reset();
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: 90 }, () => new Particle());
+    window.addEventListener('resize', resize);
+    loop();
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -10) p.reset();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,144,42,${p.life})`;
+      ctx.fill();
+    });
+    animId = requestAnimationFrame(loop);
+  }
+
+  // Only run when hero visible
+  const heroEl = document.getElementById('hero');
+  const heroVis = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!animId) loop(); }
+    else { cancelAnimationFrame(animId); animId = null; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+  });
+  heroVis.observe(heroEl);
+  init();
+})();
+
+/* ---- MENU TABS ---- */
+function switchTab(id, btn) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ---- REVIEW SLIDER ---- */
+(function() {
+  const track  = document.getElementById('reviews-track');
+  const cards  = track.querySelectorAll('.review-card');
+  const dotsWrap = document.getElementById('slider-dots');
+  const perSlide = 3;
+  const total  = cards.length;
+  const pages  = Math.ceil(total / perSlide);
+  let current  = 0;
+
+  // Build dots
+  for (let i = 0; i < pages; i++) {
+    const d = document.createElement('button');
+    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  }
+
+  function goTo(page) {
+    current = page;
+    const cardW = cards[0].getBoundingClientRect().width + 20;
+    track.style.transform = `translateX(-${page * perSlide * cardW}px)`;
+    dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === page));
+  }
+
+  window.slideReviews = function(dir) {
+    const next = (current + dir + pages) % pages;
+    goTo(next);
+  };
+
+  window.addEventListener('resize', () => goTo(current));
+})();
+
+/* ---- GALLERY LIGHTBOX ---- */
+const galleryImages = [
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/3-1.jpg', cap: 'Signature Platter' },
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/4.jpg',   cap: 'Specialty Rolls' },
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5.jpg',   cap: 'Fresh Nigiri' },
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/6.jpg',   cap: 'Premium Sashimi' },
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/5-1.jpg', cap: 'Japanese Cuisine' },
+  { src: 'https://website-cdn.menusifu.com/wp-content/uploads/kyotosushiiiinj.com/2022/02/8.jpg',   cap: 'Maki Selection' }
+];
+let lbIndex = 0;
+
+function openLightbox(i) {
+  lbIndex = i;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lb-img').src = galleryImages[i].src;
+  document.getElementById('lb-caption').textContent = galleryImages[i].cap;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function shiftLightbox(dir) {
+  lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lb-img').src = galleryImages[lbIndex].src;
+  document.getElementById('lb-caption').textContent = galleryImages[lbIndex].cap;
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  shiftLightbox(-1);
+  if (e.key === 'ArrowRight') shiftLightbox(1);
+});
+
+</script>
+</body>
+</html>
